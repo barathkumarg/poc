@@ -1,0 +1,31 @@
+[19/Dec/2022:16:11:50] ENGINE Listening for SIGTERM.
+[19/Dec/2022:16:11:50] ENGINE Listening for SIGHUP.
+[19/Dec/2022:16:11:50] ENGINE Listening for SIGUSR1.
+[19/Dec/2022:16:11:50] ENGINE Bus STARTING
+[19/Dec/2022:16:11:50] ENGINE Started monitor thread 'Autoreloader'.
+[19/Dec/2022:16:11:50] ENGINE Serving on http://127.0.0.1:5000
+[19/Dec/2022:16:11:50] ENGINE Bus STARTED
+[19/Dec/2022:16:12:18] ENGINE Keyboard Interrupt: shutting down bus
+[19/Dec/2022:16:12:18] ENGINE Bus STOPPING
+[19/Dec/2022:16:12:18] ENGINE HTTP Server cherrypy._cpwsgi_server.CPWSGIServer(('127.0.0.1', 5000)) shut down
+[19/Dec/2022:16:12:18] ENGINE Stopped thread 'Autoreloader'.
+[19/Dec/2022:16:12:18] ENGINE Bus STOPPED
+[19/Dec/2022:16:12:18] ENGINE Bus EXITING
+[19/Dec/2022:16:12:18] ENGINE Bus EXITED
+[19/Dec/2022:16:12:18] ENGINE Waiting for child threads to terminate...
+[19/Dec/2022:16:12:20] ENGINE Listening for SIGTERM.
+[19/Dec/2022:16:12:20] ENGINE Listening for SIGHUP.
+[19/Dec/2022:16:12:20] ENGINE Listening for SIGUSR1.
+[19/Dec/2022:16:12:20] ENGINE Bus STARTING
+[19/Dec/2022:16:12:20] ENGINE Started monitor thread 'Autoreloader'.
+[19/Dec/2022:16:12:20] ENGINE Serving on http://127.0.0.1:5000
+[19/Dec/2022:16:12:20] ENGINE Bus STARTED
+[19/Dec/2022:16:13:15] ENGINE Restarting because /home/local/ZOHOCORP/barath-pt5690/Desktop/Production_cherry_py/wsgi.py changed.
+[19/Dec/2022:16:13:15] ENGINE Stopped thread 'Autoreloader'.
+[19/Dec/2022:16:13:15] ENGINE Bus STOPPING
+[19/Dec/2022:16:13:16] ENGINE HTTP Server cherrypy._cpwsgi_server.CPWSGIServer(('127.0.0.1', 5000)) shut down
+[19/Dec/2022:16:13:16] ENGINE Bus STOPPED
+[19/Dec/2022:16:13:16] ENGINE Bus EXITING
+[19/Dec/2022:16:13:16] ENGINE Bus EXITED
+[19/Dec/2022:16:13:16] ENGINE Waiting for child threads to terminate...
+[19/Dec/2022:16:13:16] ENGINE Re-spawning python wsgi.py

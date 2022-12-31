@@ -1,0 +1,61 @@
+2022-12-30 13:07:53,108  Url name: http://127.0.0.1:5000/root/function  |  start time: 30/12/2022 13:07:42  |  duration: 10648.383617401123 ms  |  end time: 30/12/2022 13:07:53  |  max_memory : 416.863  |  processed_by_id: 140125723948800
+Stack_traces :
+ {140125723948800: ['  File "/home/local/ZOHOCORP/barath-pt5690/Desktop/Production_cherry_py/app/app.py", line 27, in function  time.sleep(10)\n']}  timer::: None ms  
+ {140125723948800: ['  File "/home/local/ZOHOCORP/barath-pt5690/Desktop/Production_cherry_py/app/app.py", line 28, in function  list_ = [i for i in range(10000000)]\n', '  File "/home/local/ZOHOCORP/barath-pt5690/Desktop/Production_cherry_py/app/app.py", line 28, in <listcomp>  list_ = [i for i in range(10000000)]\n']}  timer::: 10022.23253250122 ms  
+ {140125723948800: ['  File "/home/local/ZOHOCORP/barath-pt5690/Desktop/Production_cherry_py/app/app.py", line 30, in function  pass\n']}  timer::: 489.5896911621094 ms  
+ {140125723948800: ['  File "/home/local/ZOHOCORP/barath-pt5690/Desktop/Production_cherry_py/app/app.py", line 29, in function  for i in list_:\n']}  timer::: 11.971235275268555 ms  
+ Last Stack  timer::: 122.8342056274414 
+
+
+
+2022-12-30 13:08:19,281  Url name: http://127.0.0.1:5000/root/function  |  start time: 30/12/2022 13:08:08  |  duration: 10766.413927078247 ms  |  end time: 30/12/2022 13:08:19  |  max_memory : 418.047  |  processed_by_id: 140125707163392
+Stack_traces :
+ {140125707163392: ['  File "/home/local/ZOHOCORP/barath-pt5690/Desktop/Production_cherry_py/app/app.py", line 27, in function  time.sleep(10)\n']}  timer::: None ms  
+ {140125707163392: ['  File "/home/local/ZOHOCORP/barath-pt5690/Desktop/Production_cherry_py/app/app.py", line 28, in function  list_ = [i for i in range(10000000)]\n', '  File "/home/local/ZOHOCORP/barath-pt5690/Desktop/Production_cherry_py/app/app.py", line 28, in <listcomp>  list_ = [i for i in range(10000000)]\n']}  timer::: 9903.2142162323 ms  
+ {140125707163392: ['  File "/home/local/ZOHOCORP/barath-pt5690/Desktop/Production_cherry_py/app/app.py", line 29, in function  for i in list_:\n']}  timer::: 593.3389663696289 ms  
+ {140125707163392: ['  File "/home/local/ZOHOCORP/barath-pt5690/Desktop/Production_cherry_py/app/app.py", line 30, in function  pass\n']}  timer::: 43.46418380737305 ms  
+ {140125707163392: ['  File "/home/local/ZOHOCORP/barath-pt5690/Desktop/Production_cherry_py/app/app.py", line 29, in function  for i in list_:\n']}  timer::: 18.038272857666016 ms  
+ {140125707163392: ['  File "/home/local/ZOHOCORP/barath-pt5690/Desktop/Production_cherry_py/app/app.py", line 30, in function  pass\n']}  timer::: 58.876752853393555 ms  
+ Last Stack  timer::: 34.74879264831543 
+
+
+
+2022-12-30 13:08:23,107  Url name: http://127.0.0.1:5000/root/function  |  start time: 30/12/2022 13:08:12  |  duration: 10723.463535308838 ms  |  end time: 30/12/2022 13:08:23  |  max_memory : 418.73  |  processed_by_id: 140125698770688
+Stack_traces :
+ {140125698770688: ['  File "/home/local/ZOHOCORP/barath-pt5690/Desktop/Production_cherry_py/app/app.py", line 27, in function  time.sleep(10)\n']}  timer::: None ms  
+ {140125698770688: ['  File "/home/local/ZOHOCORP/barath-pt5690/Desktop/Production_cherry_py/app/app.py", line 28, in function  list_ = [i for i in range(10000000)]\n', '  File "/home/local/ZOHOCORP/barath-pt5690/Desktop/Production_cherry_py/app/app.py", line 28, in <listcomp>  list_ = [i for i in range(10000000)]\n']}  timer::: 10027.217149734497 ms  
+ {140125698770688: ['  File "/home/local/ZOHOCORP/barath-pt5690/Desktop/Production_cherry_py/app/app.py", line 30, in function  pass\n']}  timer::: 537.7991199493408 ms  
+ {140125698770688: ['  File "/home/local/ZOHOCORP/barath-pt5690/Desktop/Production_cherry_py/app/app.py", line 29, in function  for i in list_:\n']}  timer::: 26.821374893188477 ms  
+ {140125698770688: ['  File "/home/local/ZOHOCORP/barath-pt5690/Desktop/Production_cherry_py/app/app.py", line 30, in function  pass\n']}  timer::: 85.25466918945312 ms  
+ {140125698770688: ['  File "/home/local/ZOHOCORP/barath-pt5690/Desktop/Production_cherry_py/app/app.py", line 29, in function  for i in list_:\n']}  timer::: 15.474796295166016 ms  
+ Last Stack  timer::: 24.25551414489746 
+
+
+
+2022-12-30 13:09:23,621  Url name: http://127.0.0.1:5000/root/function  |  start time: 30/12/2022 13:09:12  |  duration: 10886.95216178894 ms  |  end time: 30/12/2022 13:09:23  |  max_memory : 419.148  |  processed_by_id: 140125690377984
+Stack_traces :
+ {140125690377984: ['  File "/home/local/ZOHOCORP/barath-pt5690/Desktop/Production_cherry_py/app/app.py", line 27, in function  time.sleep(10)\n']}  timer::: None ms  
+ {140125690377984: ['  File "/home/local/ZOHOCORP/barath-pt5690/Desktop/Production_cherry_py/app/app.py", line 28, in function  list_ = [i for i in range(10000000)]\n', '  File "/home/local/ZOHOCORP/barath-pt5690/Desktop/Production_cherry_py/app/app.py", line 28, in <listcomp>  list_ = [i for i in range(10000000)]\n']}  timer::: 10018.928289413452 ms  
+ {140125690377984: ['  File "/home/local/ZOHOCORP/barath-pt5690/Desktop/Production_cherry_py/app/app.py", line 30, in function  pass\n']}  timer::: 702.2805213928223 ms  
+ {140125690377984: ['  File "/home/local/ZOHOCORP/barath-pt5690/Desktop/Production_cherry_py/app/app.py", line 29, in function  for i in list_:\n']}  timer::: 29.879331588745117 ms  
+ {140125690377984: ['  File "/home/local/ZOHOCORP/barath-pt5690/Desktop/Production_cherry_py/app/app.py", line 30, in function  pass\n']}  timer::: 27.383089065551758 ms  
+ {140125690377984: ['  File "/home/local/ZOHOCORP/barath-pt5690/Desktop/Production_cherry_py/app/app.py", line 29, in function  for i in list_:\n']}  timer::: 7.90095329284668 ms  
+ {140125690377984: ['  File "/home/local/ZOHOCORP/barath-pt5690/Desktop/Production_cherry_py/app/app.py", line 30, in function  pass\n']}  timer::: 18.325090408325195 ms  
+ {140125690377984: ['  File "/home/local/ZOHOCORP/barath-pt5690/Desktop/Production_cherry_py/app/app.py", line 29, in function  for i in list_:\n']}  timer::: 21.67510986328125 ms  
+ {140125690377984: ['  File "/home/local/ZOHOCORP/barath-pt5690/Desktop/Production_cherry_py/app/app.py", line 30, in function  pass\n']}  timer::: 12.772560119628906 ms  
+ {140125690377984: ['  File "/home/local/ZOHOCORP/barath-pt5690/Desktop/Production_cherry_py/app/app.py", line 29, in function  for i in list_:\n']}  timer::: 9.161233901977539 ms  
+ Last Stack  timer::: 37.049055099487305 
+ {140125690377984: ['  File "/home/local/ZOHOCORP/barath-pt5690/Desktop/Production_cherry_py/app/app.py", line 27, in function  time.sleep(10)\n']}  timer::: 108.3834171295166 ms  
+
+
+
+2022-12-30 13:09:28,202  Url name: http://127.0.0.1:5000/root/function  |  start time: 30/12/2022 13:09:17  |  duration: 10701.026439666748 ms  |  end time: 30/12/2022 13:09:28  |  max_memory : 420.176  |  processed_by_id: 140125681985280
+Stack_traces :
+ {140125681985280: ['  File "/home/local/ZOHOCORP/barath-pt5690/Desktop/Production_cherry_py/app/app.py", line 27, in function  time.sleep(10)\n']}  timer::: None ms  
+ {140125681985280: ['  File "/home/local/ZOHOCORP/barath-pt5690/Desktop/Production_cherry_py/app/app.py", line 28, in function  list_ = [i for i in range(10000000)]\n', '  File "/home/local/ZOHOCORP/barath-pt5690/Desktop/Production_cherry_py/app/app.py", line 28, in <listcomp>  list_ = [i for i in range(10000000)]\n']}  timer::: 10022.701025009155 ms  
+ {140125681985280: ['  File "/home/local/ZOHOCORP/barath-pt5690/Desktop/Production_cherry_py/app/app.py", line 30, in function  pass\n']}  timer::: 526.8867015838623 ms  
+ {140125681985280: ['  File "/home/local/ZOHOCORP/barath-pt5690/Desktop/Production_cherry_py/app/app.py", line 29, in function  for i in list_:\n']}  timer::: 100.39830207824707 ms  
+ Last Stack  timer::: 43.71809959411621 
+
+
+
