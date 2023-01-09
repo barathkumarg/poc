@@ -1,0 +1,193 @@
+
+import io
+import os
+import os.path
+import sys
+import warnings
+
+import cherrypy
+
+
+try:
+    import profile
+    import pstats
+
+    def new_func_strip_path(func_name):
+        """Make profiler output more readable by adding `__init__` modules' parents
+        """
+        filename, line, name = func_name
+        if filename.endswith('__init__.py'):
+            return (
+                os.path.basename(filename[:-12]) + filename[-12:],
+                line,
+                name,
+            )
+        return os.path.basename(filename), line, name
+
+    pstats.func_strip_path = new_func_strip_path
+except ImportError:
+    profile = None
+    pstats = None
+
+
+_count = 0
+
+
+class Profiler(object):
+
+    def __init__(self, path=None):
+        if not path:
+            path = os.path.join(os.path.dirname(__file__), 'dumps')
+        self.path = path
+        if not os.path.exists(path):
+            os.makedirs(path)
+
+    def run(self, func, *args, **params):
+        """Dump dumps data into self.path."""
+        global _count
+        c = _count = _count + 1
+        path = os.path.join(self.path, 'cp_%04d.prof' % c)
+        prof = profile.Profile()
+        result = prof.runcall(func, *args, **params)
+        prof.dump_stats(path)
+        return result
+
+    def statfiles(self):
+        """:rtype: list of available profiles.
+        """
+        return [f for f in os.listdir(self.path)
+                if f.startswith('cp_') and f.endswith('.prof')]
+
+    def stats(self, filename, sortby='cumulative'):
+        """:rtype stats(index): output of print_stats() for the given dumps.
+        """
+        sio = io.StringIO()
+        if sys.version_info >= (2, 5):
+            s = pstats.Stats(os.path.join(self.path, filename), stream=sio)
+            s.strip_dirs()
+            s.sort_stats(sortby)
+            s.print_stats()
+            print(s)
+        else:
+            # pstats.Stats before Python 2.5 didn't take a 'stream' arg,
+            # but just printed to stdout. So re-route stdout.
+            s = pstats.Stats(os.path.join(self.path, filename))
+            s.strip_dirs()
+            s.sort_stats(sortby)
+            oldout = sys.stdout
+            try:
+                sys.stdout = sio
+                s.print_stats()
+            finally:
+                sys.stdout = oldout
+        response = sio.getvalue()
+        sio.close()
+        return response
+
+    @cherrypy.expose
+    def index(self):
+        return """<html>
+        <head><title>CherryPy dumps data</title></head>
+        <frameset cols='200, 1*'>
+            <frame src='menu' />
+            <frame name='main' src='' />
+        </frameset>
+        </html>
+        """
+
+    @cherrypy.expose
+    def menu(self):
+        yield '<h2>Profiling runs</h2>'
+        yield '<p>Click on one of the runs below to see profiling data.</p>'
+        runs = self.statfiles()
+        runs.sort()
+        for i in runs:
+            yield "<a href='report?filename=%s' target='main'>%s</a><br />" % (
+                i, i)
+
+    @cherrypy.expose
+    def report(self, filename):
+        cherrypy.response.headers['Content-Type'] = 'text/plain'
+        return self.stats(filename)
+
+
+class ProfileAggregator(Profiler):
+
+    def __init__(self, path=None):
+        Profiler.__init__(self, path)
+        global _count
+        self.count = _count = _count + 1
+        self.profiler = profile.Profile()
+
+    def run(self, func, *args, **params):
+        path = os.path.join(self.path, 'cp_%04d.prof' % self.count)
+        result = self.profiler.runcall(func, *args, **params)
+        self.profiler.dump_stats(path)
+        return result
+
+
+class make_app:
+
+    def __init__(self, nextapp, path=None, aggregate=False):
+        """Make a WSGI middleware app which wraps 'nextapp' with profiling.
+        nextapp
+            the WSGI application to wrap, usually an instance of
+            cherrypy.Application.
+        path
+            where to dump the profiling output.
+        aggregate
+            if True, dumps data for all HTTP requests will go in
+            a single file. If False (the default), each HTTP request will
+            dump its dumps data into a separate file.
+        """
+        if profile is None or pstats is None:
+            msg = ('Your installation of Python does not have a dumps '
+                   "module. If you're on Debian, try "
+                   '`sudo apt-get install python-profiler`. '
+                   'See http://www.cherrypy.org/wiki/ProfilingOnDebian '
+                   'for details.')
+            warnings.warn(msg)
+
+        self.nextapp = nextapp
+        self.aggregate = aggregate
+        if aggregate:
+            self.profiler = ProfileAggregator(path)
+        else:
+            self.profiler = Profiler(path)
+
+    def __call__(self, environ, start_response):
+        def gather():
+            result = []
+            for line in self.nextapp(environ, start_response):
+                result.append(line)
+            return result
+        return self.profiler.run(gather)
+
+
+def serve(path=None, port=8080):
+    if profile is None or pstats is None:
+        msg = ('Your installation of Python does not have a dumps module. '
+               "If you're on Debian, try "
+               '`sudo apt-get install python-profiler`. '
+               'See http://www.cherrypy.org/wiki/ProfilingOnDebian '
+               'for details.')
+        warnings.warn(msg)
+
+    cherrypy.config.update({'server.socket_port': int(port),
+                            'server.thread_pool': 10,
+                            'environment': 'production',
+                            })
+    cherrypy.quickstart(Profiler(path))
+
+
+if __name__ == '__main__':
+    # print('hi')
+    # serve(*tuple(sys.argv[1:]))
+    cherrypy.config.update({
+        'server.socket_host': '127.0.0.1',
+        'server.socket_port': 5000,
+        'log.screen': True,
+
+    })
+    cherrypy.tree.mount(Profiler())
+    cherrypy.engine.start()
